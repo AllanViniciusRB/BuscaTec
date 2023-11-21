@@ -10,7 +10,7 @@ class UsuarioController
     public function __construct()
     {
         $this->usuarioModel = new Usuario();
-       
+
     }
 
     public function listarUsuarios()
@@ -31,14 +31,7 @@ class UsuarioController
             $numerocasa = $_POST['numerocasa'];
             $cidade = $_POST['cidade'];
             $estado = $_POST['estado'];
-            
-            $perfil = isset($_POST['Usuario']) ? 'Técnico' : 'Usuario';
 
-            if($perfil === 'Técnico' && empty($_POST['perfilExperiencia'])){
-                echo "Por favor preenche o campo de experiencia profissional!";
-                exit;
-            }
-    
             // Preparar os dados para o cadastro
             $dados = [
                 'nome' => $nome,
@@ -51,62 +44,93 @@ class UsuarioController
                 'numerocasa' => $numerocasa,
                 'cidade' => $cidade,
                 'estado' => $estado,
-                'perfil' => $perfil
+            
             ];
-          
+
             // Chamar o método de cadastro no modelo
             $this->usuarioModel->cadastrar($dados);
             exit;
         }
     }
-    
+
     private function usuarioJaCadastrado($email, $cpf)
     {
-   
+
         $conn = DBConexao::getConexao();
-    
+
         $query = "SELECT * FROM usuario WHERE email = :email OR cpf = :cpf";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':cpf', $cpf);
         $stmt->execute();
-    
-        $userExists = $stmt->rowCount() > 0; 
-    
+
+        $userExists = $stmt->rowCount() > 0;
+
         if ($userExists) {
             echo "Usuário já cadastrado!";
         } else {
             echo "Usuário não cadastrado ainda.";
         }
-    
+
         return $userExists;
     }
 
-        public function loginUsuario()
-        {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $email = $_POST['email'];
-                $senha = $_POST['senha'];
-
-                if (empty($email)) {
-                    header("Location: login.php?error=E-mail é obrigatório");
-                    exit();
-                } else if (empty($senha)) {
-                    header("Location: login.php?error=A senha é obrigatória");
+    public function loginUsuario()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'];
+            $senha = $_POST['senha'];
+    
+            if (empty($email) || empty($senha)) {
+                // Exibir uma mensagem de erro ou redirecionar para a página de login com uma mensagem de erro
+                header("Location: login.php?error=E-mail e senha são obrigatórios");
+                exit();
+            } else {
+                // Autenticar o usuário
+                $usuario = Usuario::autenticarLogin($email, $senha);
+    
+                if ($usuario) {
+                    // Iniciar a sessão e armazenar o ID do usuário
+                    session_start();
+                    $_SESSION['id_usuario'] = $usuario['id_usuario'];
+    
+                    // Redirecionar para a página de início
+                    header("Location: admin/Infos/planos.php");
                     exit();
                 } else {
-                    $usuario = Usuario::autenticarLogin($email, $senha);
-                    if ($usuario) {
-                        session_start();
-                        $_SESSION['id_usuario'] = $usuario['id_usuario'];
-                        header("Location:/admin/infos/planos.php");
-                    } else {
-                        header("Location:/admin/usuarios/index.php?error=E-mail ou senha inválidos");
-                        exit();
-                    }
+                    // Exibir uma mensagem de erro ou redirecionar para a página de login com uma mensagem de erro
+                    header("Location: index.php?error=E-mail ou senha inválidos");
+                    exit();
                 }
             }
         }
+    }
+    public static function autenticarLogin($email, $senha)
+    {
+        try {
+            $query = "SELECT id_usuario, email, senha FROM usuario WHERE email = :email";
+            $conexao = DBConexao::getConexao();
+
+            $stmt = $conexao->prepare($query);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+
+            if ($stmt->rowCount() === 1) {
+                $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (password_verify($senha, $usuario["senha"])) {
+                    return $usuario;
+                } else {
+                    return false; // Senha incorreta
+                }
+            } else {
+                return false; // Usuário não encontrado
+            }
+        } catch (PDOException $e) {
+            echo "Erro na autenticação: " . $e->getMessage();
+            return false;
+        }
+    }
+
 
     public function usuarioLogado()
     {

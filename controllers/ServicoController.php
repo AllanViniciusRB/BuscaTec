@@ -31,7 +31,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Servico.php";
         
                 // Chamar o método de cadastro no modelo
                 $this->servicoModel->cadastrar($dados);
-                var_dump($dados);
+               
             }
         }
     }

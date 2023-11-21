@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
-
     <title>BuscaTec</title>
 </head>
 <body>
@@ -18,11 +19,11 @@
 
         <div class="menu">
             <ul>
-                <li><a href="/">Inicio</a></li>
+                <li><a href="/admin/Infos/inicio.php">Inicio</a></li>
                 <li><a href="/admin/Infos/guia.php">Guia</a></li>
                 <li><a href="/admin/Infos/quemsomos.php">Quem somos</a></li>
-                <li><a href="/admin/Infos/servico.php">Planos</a></li>
-                <li><a href="/admin/Infos/servico.php">Serviços</a></li>
+                <li><a href="/admin/Infos/planos.php">Planos</a></li>
+                <li><a href="/admin/Infos/listaproblemas.php">Serviços</a></li>
                 <li><a href="/admin/Infos/agendamentos.php">Agendamentos</a></li>
                 <li><a href="/admin/usuarios/cadastrar.php">Minha Conta</a></li>
                 <li><a href="/admin/admin/admnistrativo.php">Administrativo</a></li>

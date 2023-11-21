@@ -18,14 +18,14 @@ if ($visita && is_object($visita)) {
     $descricao = property_exists($visita, 'descricao') ? $visita->descricao : 'Descrição não disponível';
 } else {
     // Se $visita não for válido, redirecione ou trate de acordo com a lógica da sua aplicação
-    header("Location: /admin/Infos/servico.php");
+    header("Location: /admin/Infos/listaproblemas.php");
     exit();
 }
 ?>
 
 <main>
     <div class="container mt-5">
-        <form action="/admin/Infos/Servico.php" method="post">
+        <form action="/admin/Infos/servico.php" method="post">
             <label for="idServico">ID do Serviço:</label>
             <input type="text" class="form-control text-center" id="idServico" value="<?= $id_visita ?>" readonly>
             <div class="form-group">
@@ -48,7 +48,6 @@ if ($visita && is_object($visita)) {
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-           <?php echo var_dump($visita);?>
         </form>
     </div>
 </main>

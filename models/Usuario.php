@@ -31,8 +31,8 @@ class Usuario
     public function cadastrar($dados)
     {
         try {
-            $sql = "INSERT INTO {$this->table} (nome, senha, cpf, email, telefone, cep, rua, numerocasa, cidade, estado, perfil)
-                VALUES (:nome, :senha, :cpf, :email, :telefone, :cep, :rua, :numerocasa, :cidade, :estado , :perfil)";
+            $sql = "INSERT INTO {$this->table} (nome, senha, cpf, email, telefone, cep, rua, numerocasa, cidade, estado)
+                VALUES (:nome, :senha, :cpf, :email, :telefone, :cep, :rua, :numerocasa, :cidade, :estado )";
             $stmt = $this->db->prepare($sql);
 
             $stmt->bindParam(':nome', $dados['nome']);
@@ -45,15 +45,7 @@ class Usuario
             $stmt->bindParam(':numerocasa', $dados['numerocasa']);
             $stmt->bindParam(':cidade', $dados['cidade']);
             $stmt->bindParam(':estado', $dados['estado']);
-            $stmt->bindParam(':perfil', $dados['perfil']);
 
-            if ($dados['perfil'] === 'Técnico') {
-                $perfilExperiencia = isset($dados['perfilExperiencia']) ? $dados['perfilExperiencia'] : null;
-                $stmt->bindParam(':perfilExperiencia', $perfilExperiencia);
-            } else {
-                $perfilExperiencia = null;
-                $stmt->bindParam(':perfilExperiencia', $perfilExperiencia);
-            }
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

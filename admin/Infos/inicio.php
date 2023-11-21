@@ -1,62 +1,149 @@
 <?php
-session_start();
+
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
-
-$usuarioController = new UsuarioController();
-
-if (!$usuarioController->usuarioLogado()) {
-    header("Location: /admin/admin/login.php");
-    exit();
-}
-
-$perfilUsuario = $usuarioController->getInformacoesPerfil();
 
 ?>
+<main>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-
-<div class="container mt-5">
-    <h1 class="mb-4">Login</h1>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" class="form-control" value="<?php echo $perfilUsuario['nome']; ?>" readonly>
+    <body>
+        <div class="office">
+            <div class="trabalho">
+                <img src="/assets/img/program.png"  alt="">
             </div>
-
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input type="text" id="email" class="form-control" value="<?php echo $perfilUsuario['email']; ?>" readonly>
+            <div class="trabalho">
+                <img src="/assets/img/designer.jpg"  alt="">
+            </div>
+            <div class="trabalho">
+                <img src="/assets/img/técnico.jpg"   alt="">
             </div>
         </div>
-
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" class="form-control" value="<?php echo $perfilUsuario['cpf']; ?>" readonly>
+        <div class="container">
+            <div class="traba">
+            <div class="owl-carousel owl-theme">
+                <div class="/assets/img/program.png">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="fone">Telefone:</label>
-                <input type="text" id="fone" class="form-control" value="<?php echo $perfilUsuario['fone']; ?>" readonly>
+            <a href="#" class="btn btn-secondary">Programador</a>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
+                </div>
             </div>
+            <a href="#" class="btn btn-secondary">Designer</a>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+                <div class="item">
+                    <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
+                </div>
+            </div>
+            <a href="#" class="btn btn-secondary ">Técnico</a>
         </div>
-    </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
 
-</body>
-</html>
+    </html>
+</main>
+
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
+?>

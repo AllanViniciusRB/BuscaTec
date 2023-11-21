@@ -35,7 +35,6 @@ class Visita_TecnicaController
 
             // Chamar o método de cadastro no modelo
             $this->visitaTecnica->cadastrar($dados);
-            var_dump($dados);
             
         }
 }

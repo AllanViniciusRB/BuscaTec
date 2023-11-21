@@ -109,15 +109,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
     </div>
     <div class="separador"></div>
 
-    <!-- Tutoriais para o Usuario -->
-
-    <div class="container">
-        <h2>Tutoriais para o Usuário</h2>
-
-        <div>
-            
-        </div>
-    </div>
+ 
 
 </body>
 
