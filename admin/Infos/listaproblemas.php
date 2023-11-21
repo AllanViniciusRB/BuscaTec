@@ -32,7 +32,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/Visita_TecnicaController.
                         <td><?= $servico->email ?></td>
                         <td>
                             <a href="/admin/Infos/servico.php?id=<?= $servico->id_visita ?>" class="btn btn-primary btn-sm">Visualizar</a>
-                            <a href="#" class="btn btn-danger btn-sm">Aceitar</a>
+                            <a href="/admin/Infos/Informacoesdoservico.php" class="btn btn-danger btn-sm">Aceitar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

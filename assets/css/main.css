@@ -397,6 +397,14 @@ h3 {
 .traba img{
     width: 250px;
     height: 250px;
-    border-radius: 50%;
+    
 }
 
+.button{ 
+    text-align: center;
+    margin-top: 10px; /* Ajuste conforme necessário */
+    margin-bottom: 20px;
+}
+.trabalho{
+    margin-bottom: 30px;
+}

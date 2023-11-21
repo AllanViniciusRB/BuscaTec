@@ -26,6 +26,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
             ?>
             <div class="caixa">
 
+                <div class="desenvolvimento">
+                    <h2>Site em Desenvolvimento</h2>
+                </div>
                 <img src="/assets/img/a.png" alt="">
                 <h1>Login</h1>
                 <form action="index.php" method="post">

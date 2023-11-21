@@ -57,7 +57,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
                     <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
                 </div>
             </div>
-            <a href="#" class="btn btn-secondary">Programador</a>
+            <div class="button"> 
+                <a href="#" class="btn btn-secondary">Programador</a>
+            </div>
             <div class="owl-carousel owl-theme">
                 <div class="item">
                     <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
@@ -96,7 +98,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
                     <img src="/assets/img/designer.jpg" height="200" width="300" alt="">
                 </div>
             </div>
-            <a href="#" class="btn btn-secondary">Designer</a>
+            <div class="button">
+                <a href="#" class="btn btn-secondary">Designer</a>
+            </div>
             <div class="owl-carousel owl-theme">
                 <div class="item">
                     <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
@@ -135,7 +139,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
                     <img src="/assets/img/técnico.jpg" height="200" width="300" alt="">
                 </div>
             </div>
-            <a href="#" class="btn btn-secondary ">Técnico</a>
+            <div class="button">
+                <a href="#" class="btn btn-secondary ">Técnico</a>
+            </div>
         </div>
 </div>
 
