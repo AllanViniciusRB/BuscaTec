@@ -51,39 +51,14 @@ class Visita_TecnicaController
         }
     }
 
-    
-    public function idVisita($id)
+    public function obterVisitaPorId($id)
     {
-        try {
-            $query = "SELECT * FROM {$this->table} WHERE id_visita = :id";
-            $stmt = $this->db->prepare($query);
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
+        // Chame o método idVisita do modelo VisitaTecnica
+        $visita = $this->visitaTecnica->idVisita($id);
 
-            return $stmt->fetch(PDO::FETCH_OBJ);
-        } catch (PDOException $e) {
-            echo 'Erro na consulta: ' . $e->getMessage();
-            return null;
-        }
-
-        $id_servico = isset($_GET['id']) ? $_GET['id'] : null;
-
-        if (!$id_servico) {
-            // Se o ID não estiver presente, redirecione ou mostre uma mensagem de erro
-            header("Location: /admin/includes/alerta.php");
-            exit();
-        }
-
-        // Recupere a descrição do problema da URL
-        $descricao_problema = isset($_GET['descricao']) ? $_GET['descricao'] : 'Descrição não disponível';
-
-        $AgendamentoController = new Visita_TecnicaController();
-        $servico = $AgendamentoController->idVisita($id_servico);
-
-        if (!$servico) {
-            // Se o serviço com o ID especificado não for encontrado, redirecione ou mostre uma mensagem de erro
-            header("Location: /admin/includes/alerta.php");
-            exit();
-        }
+        // Faça o que for necessário com o objeto $visita
+        return $visita;
     }
+
+
 }
