@@ -2,17 +2,19 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
-
+ 
 if(isset($_GET["del"]) && !empty($_GET['id_usuario'])){
+    
     $usuarioController = new UsuarioController();
     $usuarioController->excluirUsuario();
 }
-
+ 
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<main class="container mt-3 mb-3">
+<main id="tabela" class="container mt-12 mb-12">
+ 
     <h1>Lista De Usuários</h1>
-    <a href="/admin/usuarios/cadastrar.php" class="btn btn-primary float-end">Cadastrar</a>
+    <a id="link-cadastro"href="/admin/usuarios/cadastrar.php" class="btn btn-primary float-end">Cadastrar</a>
     <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/includes/alerta.php"; ?>
     <table class="table table-striped">
         <thead>
@@ -23,6 +25,11 @@ if(isset($_GET["del"]) && !empty($_GET['id_usuario'])){
                 <th>Email</th>
                 <th>Senha</th>
                 <th>Fone</th>
+                <th>CEP</th>
+                <th>Rua</th>
+                <th>N°Casa</th>
+                <th>Cidade</th>
+                <th>Estado</th>
                 <th>Perfil</th>
                 <th style="width: 200px">Ação</th>
             </tr>
@@ -31,7 +38,7 @@ if(isset($_GET["del"]) && !empty($_GET['id_usuario'])){
             <?php
                 $usuarioController = new UsuarioController();
                 $usuarios = $usuarioController->listarUsuarios();
-                
+               
                 foreach($usuarios as $usuario):
             ?>
             <tr>
@@ -41,17 +48,23 @@ if(isset($_GET["del"]) && !empty($_GET['id_usuario'])){
                 <td><?=$usuario->email?></td>
                 <td><?=$usuario->senha?></td>
                 <td><?=$usuario->telefone?></td>
+                <td><?=$usuario->cep?></td>
+                <td><?=$usuario->rua?></td>
+                <td><?=$usuario->numerocasa?></td>
+                <td><?=$usuario->cidade?></td>
+                <td><?=$usuario->estado?></td>
                 <td><?=$usuario->perfil?></td>
                 <td>
                 <a href="/admin/usuarios/editar.php?id_usuario=<?=$usuario->id_usuario?>" class="btn btn-primary">Editar</a>
-                   <a href="index.php?id_usuario=<?=$usuario->id_usuario?>&del" class="btn btn-danger">Excluir</a>
+                   <a href="/admin/admin/admnistrativo.php?id_usuario=<?=$usuario->id_usuario?>&del" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
+           
             <?php endforeach; ?>
         </tbody>
     </table>
 </main>
-
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+ 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php"; ?>

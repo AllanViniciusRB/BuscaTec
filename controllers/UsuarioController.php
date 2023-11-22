@@ -31,7 +31,10 @@ class UsuarioController
             $numerocasa = $_POST['numerocasa'];
             $cidade = $_POST['cidade'];
             $estado = $_POST['estado'];
-
+           
+ 
+   
+ 
             // Preparar os dados para o cadastro
             $dados = [
                 'nome' => $nome,
@@ -43,10 +46,10 @@ class UsuarioController
                 'rua' => $rua,
                 'numerocasa' => $numerocasa,
                 'cidade' => $cidade,
-                'estado' => $estado,
-            
+                'estado' => $estado
+           
             ];
-
+ 
             // Chamar o método de cadastro no modelo
             $this->usuarioModel->cadastrar($dados);
             exit;
@@ -182,6 +185,7 @@ class UsuarioController
 
     public function excluirUsuario()
     {
+      
         $this->usuarioModel->excluir($_GET['id_usuario']);
         header('Location:/admin/admin/admnistrativo.php');
         exit;
@@ -197,18 +201,23 @@ class UsuarioController
                 $usuario = $this->usuarioModel->buscar($id_usuario);
                 $senha = $usuario->senha;
             }
-
+ 
             $dados = [
                 'nome' => $_POST['nome'],
                 'senha' => $senha,
                 'cpf' => $_POST['cpf'],
                 'email' => $_POST['email'],
                 'telefone' => $_POST['telefone'],
-                'perfil' => $_POST['perfil']
+                'cep' => $_POST['cep'],
+                'rua' => $_POST['rua'],
+                'numerocasa' => $_POST['numerocasa'],
+                'cidade' => $_POST['cidade'],
+                'estado' => $_POST['estado'],
+                'perfil'=> $_POST['perfil']
             ];
-
+ 
             $this->usuarioModel->editar($id_usuario, $dados);
-
+ 
             header('Location: /admin/admin/admnistrativo.php');
             exit;
         }

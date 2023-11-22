@@ -1,14 +1,14 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
-
+ 
 $usuarioController = new UsuarioController();
 $usuarioController->cadastrarUsuario();
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="pt-br">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,43 +20,38 @@ $usuarioController->cadastrarUsuario();
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+ 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/js/main.js"></script>
-
+ 
     <title>BuscaTec- Cadastro</title>
 </head>
-
+ 
 <body id="principal">
-
+ 
     <div id="login">
-
+ 
         <div class="caixa">
-
+ 
             <img src="/assets/img/a.png" alt="">
             <h1>Cadastrar</h1><br>
-            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="tecnicoCheckbox" name="tipoCadastro" value="tecnico">
-                                <label class="form-check-label" for="tecnicoCheckbox">
-                                    Técnico
-                                </label>
-                            </div>
 
+ 
             <form action="cadastrar.php" method="post">
-
+ 
                 <div class="name">
                     <input type="text" name="nome" id="nome" placeholder="Nome" required>
                 </div>
-
+ 
                 <div class="cpf">
                     <input type="text" class="cpf" name="cpf" id="cpf" placeholder="CPF" maxlength="14">
                 </div>
-
+ 
                 <div class="telefone">
                     <input type="text" class="telefone" name="telefone" id="telefone" placeholder="Telefone/Celular"
                         maxlength=15>
                 </div>
-
+ 
                 <div class="cep">
                     <input type="text" class="cep" name="cep" id="cep" placeholder="CEP" maxlength="9">
                 </div>
@@ -64,16 +59,16 @@ $usuarioController->cadastrarUsuario();
                     <input type="text" name="rua" id="rua" placeholder="RUA/AVENIDA" readonly>
                 </div>
                 <div class="numero">
-                    <input type="text" name="numerocasa" id="numerocasa" placeholder="Numero">
+                    <input type="text" name="numerocasa" id="numerocasa" placeholder="Numero" maxlength="5">
                 </div>
                 <div class="cidade">
                     <input type="text" name="cidade" id="cidade" placeholder="CIDADE*" readonly>
                 </div>
-
+ 
                 <div class="estado">
                     <input type="text" name="estado" id="estado" placeholder="ESTADO" readonly>
                 </div>
-
+ 
                 <div class="email">
                     <input type="email" name="email" id="email" placeholder="E-mail">
                 </div>
@@ -86,28 +81,26 @@ $usuarioController->cadastrarUsuario();
                     <i class="bi bi-eye-fill" id="btnconfirmarsenha" onclick="mostrarConfirmarSenha()"></i>
                 </div>
                 <div class="form-group" id="opcoesTecnico" style="display: none;">
-                    <h2>Opções para Técnicos</h2>
-                    <label for="experiencia">Experiência Profissional:</label>
-                    <textarea class="form-control" id="perfilExperiencia" name="perfilExperiencia" rows="3"></textarea>
-
-            
+     
+ 
+ 
                 </div>
                 <div class="entrar">
                     <p>Ja possui cadastro? <a href="/admin/admin/login.php">Entre agora.</a></p>
                     <br>
                     <input type="submit" value="Cadastrar">
                 </div><br>
-
+ 
             </form>
         </div>
     </div>
-
+ 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         window.onload = function () {
             formatarCampo();
         };
-
+ 
     </script>
     <script>
         var campoCEP = document.getElementById('cep');
@@ -118,16 +111,16 @@ $usuarioController->cadastrarUsuario();
         });
     </script>
     <script>
-    document.getElementById('tecnicoCheckbox').addEventListener('change', function () {
-        var opcoesTecnico = document.getElementById('opcoesTecnico');
-        opcoesTecnico.style.display = this.checked ? 'block' : 'none';
-    });
-</script>
-
+        document.getElementById('tecnicoCheckbox').addEventListener('change', function () {
+            var opcoesTecnico = document.getElementById('opcoesTecnico');
+            opcoesTecnico.style.display = this.checked ? 'block' : 'none';
+        });
+    </script>
+ 
 </body>
-
+ 
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
 ?>
-
+ 
 </html>

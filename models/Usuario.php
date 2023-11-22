@@ -115,6 +115,7 @@ class Usuario
 
     public function excluir($id_usuario)
     {
+      
         try {
             $sql = "DELETE FROM {$this->table} WHERE id_usuario=:id_usuario";
             $stmt = $this->db->prepare($sql);
@@ -130,15 +131,14 @@ class Usuario
     public function editar($id_usuario, $dados)
     {
         try {
-            $sql = "UPDATE {$this->table} SET nome = :nome, senha = :senha, cpf = :cpf, email = :email, telefone = :telefone, perfil = :perfil WHERE id_usuario = :id_usuario";
+            $sql = "UPDATE {$this->table} SET nome = :nome, senha = :senha, cpf = :cpf, email = :email, telefone = :telefone WHERE id_usuario = :id_usuario";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
             $stmt->bindParam(':nome', $dados['nome']);
-            $stmt->bindParam(':senha', $dados['senha']);
+            $stmt->bindParam(':senha', $dados['senha']);    
             $stmt->bindParam(':cpf', $dados['cpf']);
             $stmt->bindParam(':email', $dados['email']);
             $stmt->bindParam(':telefone', $dados['telefone']);
-            $stmt->bindParam(':perfil', $dados['perfil']);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

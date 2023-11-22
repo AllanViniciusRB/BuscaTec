@@ -1,9 +1,9 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalhoInicio.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalhoInicio.php";
 ?>
 <main>
     <?php
-    
+
     require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
 
 
@@ -55,11 +55,8 @@
 
     </html>
 
-    <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
-    ?>
-</main>
 
+</main>
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
 ?>
