@@ -16,8 +16,8 @@ class Servico
     public function cadastrar($dados)
     {
         try {
-            $sql = "INSERT INTO {$this->table} (dia, hora, informacoes, valor)
-            VALUES (:dia, :hora, :informacoes, :valor)";
+            $sql = "INSERT INTO {$this->table} (dia, hora, informacoes, valor, id_usuario)
+            VALUES (:dia, :hora, :informacoes, :valor, :id_usuario)";
             $stmt = $this->db->prepare($sql);
 
             
@@ -25,7 +25,7 @@ class Servico
             $stmt->bindParam(':hora', $dados['hora']);
             $stmt->bindParam(':informacoes', $dados['informacoes']);
             $stmt->bindParam(':valor', $dados['valor']);
-
+            $stmt->bindParam(':id_usuario', $dados['id_usuario']);
             $stmt->execute();
 
             return true;
@@ -44,6 +44,25 @@ class Servico
         } catch (PDOException $e) {
             echo 'Erro na listagem: ' . $e->getMessage();
             return null;
+        }
+    }
+
+    public function buscaId($id)
+    {
+        try {
+            $sql = "SELECT * FROM {$this->table} WHERE id_servico = :id_servico";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':id_servico', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            if ($stmt->rowCount() === 1) {
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            } else {    
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "Erro na busca por ID: " . $e->getMessage();
+            return false;
         }
     }
 }

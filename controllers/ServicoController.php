@@ -20,19 +20,24 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Servico.php";
                 $hora = $_POST['hora'];
                 $informacoes = $_POST['informacoes'];
                 $valor = $_POST['valor'];
+                $id_usuario = $_POST['id_usuario'];
         
                 // Preparar os dados para o cadastro
                 $dados = [
                     'dia' => $dia,
                     'hora' => $hora,
                     'informacoes' => $informacoes,
-                    'valor' => $valor
+                    'valor' => $valor,
+                    'id_usuario' => $id_usuario
                 ];
-        
                 // Chamar o método de cadastro no modelo
                 $this->servicoModel->cadastrar($dados);
                
             }
+        }
+        public function buscarServico($id){
+            
+            return $this->servicoModel->buscaId($id);
         }
     }
 ?>

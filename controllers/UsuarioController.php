@@ -215,6 +215,11 @@ class UsuarioController
 
         return $this->usuarioModel->buscar($id_usuario);
     }
+    public function buscarUsuario($id){
+
+        return $this->usuarioModel->buscar($id);
+
+    }
 }
 
 ?>

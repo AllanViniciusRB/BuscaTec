@@ -2,6 +2,7 @@
     require_once $_SERVER['DOCUMENT_ROOT'] . "/database/DBConexao.php";
     require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/alerta.php";
 
+    session_start();
     class VisitaTecnica
     {
 
@@ -17,14 +18,15 @@
         {
             try {
 
-                $sql = "INSERT INTO {$this->table} (email, descricao, id_servico)
-                    VALUES (:email, :descricao, :id_servico)";
+                $sql = "INSERT INTO {$this->table} (email, descricao, id_servico, id_usuario)
+                    VALUES (:email, :descricao, :id_servico, :id_usuario)";
                 $stmt = $this->db->prepare($sql);
     
                
                 $stmt->bindParam(':email', $dados['email']);
                 $stmt->bindParam(':descricao', $dados['descricao']);
                 $stmt->bindParam(':id_servico', $dados['id_servico']);
+                $stmt->bindParam(':id_usuario',  $_SESSION['id_usuario']);
 
                 $stmt->execute();
                 

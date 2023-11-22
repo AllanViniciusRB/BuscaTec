@@ -1,5 +1,12 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/ServicoController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
+
+$servico = new ServicoController();
+$servico = $servico->buscarServico($_GET["id"]);
+$usuario = new UsuarioController();
+$usuario = $usuario->buscarUsuario($servico["id_usuario"]);
 
 ?>
 
@@ -14,22 +21,22 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nomeCliente">Nome do Cliente</label>
-                    <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do Cliente">
+                    <input type="text" class="form-control" id="nomeCliente" value="<?=$usuario->nome?>" placeholder="Nome do Cliente">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="rua">Rua</label>
-                    <input type="text" class="form-control" id="rua" placeholder="Rua">
+                    <input type="text" class="form-control" id="rua" value="<?=$usuario->rua?>" placeholder="Rua">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="numeroCasa">Número da Casa</label>
-                    <input type="text" class="form-control" id="numeroCasa" placeholder="Número da Casa">
+                    <input type="text" class="form-control" id="numeroCasa" value="<?=$usuario->numerocasa?>" placeholder="Número da Casa">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="cidade">Cidade</label>
-                    <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                    <input type="text" class="form-control" id="cidade" value="<?=$usuario->cidade?>" placeholder="Cidade">
                 </div>
             </div>
 
@@ -45,18 +52,18 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
                 </div>
                 <div class="form-group col-md-6">
                     <label for="descricaoProblema">Descrição do Problema</label>
-                    <textarea class="form-control" id="descricaoProblema" rows="3"></textarea>
+                    <textarea  id="informacoes" class="form-control" name="informacoes" readonly><?=$servico["informacoes"]?></textarea>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="dia">Dia</label>
-                    <input type="date" class="form-control" id="dia">
+                    <input type="date" class="form-control" id="dia" value="<?=$servico["dia"]?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="hora">Hora</label>
-                    <input type="time" class="form-control" id="hora">
+                    <input type="time" class="form-control" value="<?=$servico["hora"]?>" id="hora">
                 </div>
             </div>
 
@@ -67,7 +74,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
                 </div>
                 <div class="form-group col-md-6">
                     <label for="idServico">ID do Serviço</label>
-                    <input type="text" class="form-control" id="idServico" placeholder="ID do Serviço">
+                    <input type="text" class="form-control" id="idServico"value="<?=$servico["id_servico"]?>" placeholder="ID do Serviço">
                 </div>
             </div>
 
@@ -78,7 +85,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 </main>
 
 </body>

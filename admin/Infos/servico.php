@@ -32,7 +32,7 @@ if ($visita && is_object($visita)) {
                 <label for="dia">Data:</label>
                 <input type="date" class="form-control" id="dia" name="dia" required>
             </div>
-
+            <input type="text" name="id_usuario" value="<?=$visita->id_usuario?>">
             <div class="form-group">
                 <label for="hora">Hora:</label>
                 <input type="time" class="form-control" id="hora" name="hora" required>

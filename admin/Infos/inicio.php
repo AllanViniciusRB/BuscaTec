@@ -10,12 +10,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
             <div class="trabalho">
                 <img src="/assets/img/program.png"  alt="">
             </div>
+            <h3>Programador</h3>
             <div class="trabalho">
                 <img src="/assets/img/designer.jpg"  alt="">
             </div>
+            <h3>Designer</h3>
             <div class="trabalho">
                 <img src="/assets/img/técnico.jpg"   alt="">
             </div>
+            <h3>Designer</h3>
         </div>
         <div class="container">
             <div class="traba">
