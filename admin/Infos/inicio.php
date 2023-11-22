@@ -6,6 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
 <main>
 
     <body>
+        <h1>Em Desenvolvimento</h1>
         <div class="office">
             <div class="trabalho">
                 <img src="/assets/img/program.png"  alt="">
@@ -18,10 +19,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
             <div class="trabalho">
                 <img src="/assets/img/técnico.jpg"   alt="">
             </div>
-            
-            <h3>Programador</h3>
-            <h3>Designer</h3>
-            <h3>Designer</h3>
+
+
 
         </div>
         <div class="container">

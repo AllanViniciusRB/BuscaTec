@@ -25,9 +25,9 @@
                 <li><a href="/admin/Infos/planos.php">Planos</a></li>
                 <li><a href="/admin/Infos/listaproblemas.php">Serviços</a></li>
                 <li><a href="/admin/Infos/agendamentos.php">Agendamentos</a></li>
-                <li><a href="/admin/usuarios/cadastrar.php">Minha Conta</a></li>
+    
                 <li><a href="/admin/admin/admnistrativo.php">Administrativo</a></li>
-                <li><a href="/admin/usuarios/perfil.php">Perfil</a></li>
+                <li><a href="/index.php">Sair</a></li>
             </ul>
 
         </div>

@@ -32,9 +32,9 @@ class UsuarioController
             $cidade = $_POST['cidade'];
             $estado = $_POST['estado'];
            
- 
-   
- 
+
+            $perfil = isset($_POST['perfil']) ? $_POST['perfil'] : 'Usuario';
+
             // Preparar os dados para o cadastro
             $dados = [
                 'nome' => $nome,
@@ -46,12 +46,14 @@ class UsuarioController
                 'rua' => $rua,
                 'numerocasa' => $numerocasa,
                 'cidade' => $cidade,
-                'estado' => $estado
-           
+                'estado' => $estado,
+                'perfil' => $perfil,
+            
             ];
- 
+
             // Chamar o método de cadastro no modelo
             $this->usuarioModel->cadastrar($dados);
+            header('Location: /index.php');
             exit;
         }
     }

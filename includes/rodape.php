@@ -1,5 +1,5 @@
 <footer class="rodape">
-    <h3>Sua Tecnologia Merece o Melhor, Merece BuscaTec!</h3>
+    <h3><strong>Sua Tecnologia Merece o Melhor, Merece BuscaTec!</strong></h3>
     <div class="linha-rodape container">
         <div class="coluna-rodape">
             <img src="/assets/img/a.png" alt="Logo da BuscaTec" width="200">
@@ -39,7 +39,7 @@
             <ul>
                 <li><a href="/admin/Infos/privacidade.php">Política de Privacidade</a></li>
                 <li><a href="/assets/Itens/Termos de Uso da BuscaTec.pdf">Termos de Uso</a></li>
-                <li><a href="/admin/infos/contato.php">Contato</a></li>
+  
                 <li><a href="/admin/infos/privacidade.php">Privacidade</li>
             </ul>
             <div class="copyright">

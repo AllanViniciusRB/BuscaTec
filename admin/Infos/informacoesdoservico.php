@@ -39,7 +39,7 @@ $usuario = $usuario->buscarUsuario($servico["id_usuario"]);
                 </div>
                 <div class="form-group col-md-6">
                     <label for="cidade">Cidade</label>
-                    <input type="text" class="form-control" id="cidade" value="<?= $usuario->cidade ?>"
+                    <input type="text" class="form-control" id="cidade" value="<?= $usuario->cidade?>"
                         placeholder="Cidade" readonly>
                 </div>
             </div>
